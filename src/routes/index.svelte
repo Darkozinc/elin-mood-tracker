@@ -2,6 +2,13 @@
     import Greeting from "$lib/Greeting.svelte";
     import Entry from "$lib/Entry.svelte ";
     import EntryModal from "$lib/EntryModal.svelte ";
+    import supabase from '$lib/db';
+    async function signOut() {
+   	 const { error } = await supabase.auth.signOut();
+
+   	 if (error) alert(error.message); // alert if error
+    }
+
 </script>
 
 <Greeting />
